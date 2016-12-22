@@ -1,0 +1,22 @@
+FROM resin/%%RESIN_MACHINE_NAME%%-python:3
+
+WORKDIR /usr/src/app
+ENV INITSYSTEM on
+
+ENV CRAWLVERSION 0.19.1
+RUN apt-get update && \
+    apt-get install -yq --no-install-recommends \
+     build-essential libncursesw5-dev bison flex liblua5.1-0-dev \
+     libsqlite3-dev libz-dev pkg-config libsdl2-image-dev libsdl2-mixer-dev    \
+     libsdl2-dev libfreetype6-dev libpng-dev ttf-dejavu-core \
+     git && \
+    git clone https://github.com/crawl/crawl.git && \
+    cd crawl && \
+    git checkout -b build ${CRAWLVERSION} && \
+    git submodule update --init && \
+    cd source && \
+    make WEBTILES=y SOUND=y && \
+    ???
+
+# Copy config
+# from example
