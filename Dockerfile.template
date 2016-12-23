@@ -16,7 +16,7 @@ RUN apt-get update && \
     git submodule update --init && \
     cd crawl-ref/source && \
     make WEBTILES=y SOUND=y USE_DGAMELAUNCH=y && \
-    apt-cache clean
+    apt-get clean
 
 # Copy config, maybe work from patch?
 # from example
