@@ -18,6 +18,8 @@ RUN apt-get update && \
     make -j36 WEBTILES=y SOUND=y USE_DGAMELAUNCH=y && \
     apt-get clean
 
+# Webserver notes: http://s-z.org/neil/git/?p=crawl.git;a=blob;f=crawl-ref/source/webserver/README
+
 # Copy config, maybe work from patch?
 # from example
 # adjust to keep good things on the data drive while software in the container
