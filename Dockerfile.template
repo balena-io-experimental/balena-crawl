@@ -15,7 +15,7 @@ RUN apt-get update && \
     git checkout -b build ${CRAWLVERSION} && \
     git submodule update --init && \
     cd crawl-ref/source && \
-    make WEBTILES=y SOUND=y USE_DGAMELAUNCH=y && \
+    make -j36 WEBTILES=y SOUND=y USE_DGAMELAUNCH=y && \
     apt-get clean
 
 # Copy config, maybe work from patch?
