@@ -40,4 +40,10 @@ RUN ln -s /data/ "${PWD}/crawl/crawl-ref/source/rsc"
 # Add start script
 COPY start.sh ./
 
+# Install extra packages for hostname set and avahi announce
+RUN apt-get update && \
+    apt-get install -yq --no-install-recommends \
+      dbus avahi-utils && \
+    apt-get clean
+
 CMD ["bash", "start.sh"]
