@@ -1,0 +1,29 @@
+--- config.py	2017-01-03 14:00:55.353580072 +0000
++++ config.py.local	2017-01-03 14:34:24.848219765 +0000
+@@ -8,7 +8,7 @@
+ 
+ bind_nonsecure = True # Set to false to only use SSL
+ bind_address = ""
+-bind_port = 8080
++bind_port = 80
+ # Or listen on multiple address/port pairs (overriding the above) with:
+ # bind_pairs = (
+ #     ("127.0.0.1", 8080),
+@@ -22,7 +22,7 @@
+     "format": "%(asctime)s %(levelname)s: %(message)s"
+ }
+ 
+-password_db = "./webserver/passwd.db3"
++password_db = "/data/passwd.db3"
+ 
+ static_path = "./webserver/static"
+ template_path = "./webserver/templates/"
+@@ -31,7 +31,7 @@
+ server_socket_path = None # Uses global temp dir
+ 
+ # Server name, so far only used in the ttyrec metadata
+-server_id = ""
++server_id = "resin.io"
+ 
+ # Disable caching of game data files
+ game_data_no_cache = True

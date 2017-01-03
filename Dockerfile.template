@@ -31,7 +31,13 @@ RUN apt-get update && \
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
 
-COPY config.py ./crawl/crawl-ref/source/webserver/
+# Apply config changes
+COPY config.py.patch ./crawl/crawl-ref/source/webserver/
+RUN cd ./crawl/crawl-ref/source/webserver/ && \
+    patch -p0 < config.py.patch
+# Save game files on the data partition
+RUN ln -s /data/ "${PWD}/crawl/crawl-ref/source/rsc"
+# Add start script
 COPY start.sh ./
 
 CMD ["bash", "start.sh"]
